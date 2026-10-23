@@ -13,7 +13,7 @@ local panel=Color3.fromRGB(22,31,43)
 local function round(obj,r) Instance.new("UICorner",obj).CornerRadius=UDim.new(0,r) end
 local function stroke(obj,color,trans) local s=Instance.new("UIStroke",obj);s.Color=color;s.Transparency=trans or 0;s.Thickness=1 end
 local root=Instance.new("Frame")
-root.Name="Window";root.Size=UDim2.fromOffset(224,150);root.Position=UDim2.new(.5,-112,.5,-75)
+root.Name="Window";root.Size=UDim2.fromOffset(224,116);root.Position=UDim2.new(.5,-112,.5,-58)
 root.BackgroundColor3=black;root.BorderSizePixel=0;root.Active=true;root.Parent=gui
 round(root,12);stroke(root,ice,.55)
 local function label(text,x,y,w,h,size,color,bold)
@@ -73,7 +73,7 @@ plus.MouseButton1Click:Connect(function() speed=math.min(100,speed+1);speedLabel
 fly.MouseButton1Click:Connect(function() if flying then stop() else start() end end)
 player.CharacterRemoving:Connect(stop)
 minimize.MouseButton1Click:Connect(function()
- minimized=not minimized;root.Size=UDim2.fromOffset(224,minimized and 39 or 150)
+ minimized=not minimized;root.Size=UDim2.fromOffset(224,minimized and 39 or 116)
  for _,v in ipairs({line,minus,plus,speedLabel,fly,footer}) do v.Visible=not minimized end
  for _,v in ipairs(root:GetChildren()) do if v:IsA("TextLabel") and v.Text=="SPEED" then v.Visible=not minimized end end
 end)
