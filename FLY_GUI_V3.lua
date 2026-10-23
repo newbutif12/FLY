@@ -13,7 +13,7 @@ local panel=Color3.fromRGB(22,31,43)
 local function round(obj,r) Instance.new("UICorner",obj).CornerRadius=UDim.new(0,r) end
 local function stroke(obj,color,trans) local s=Instance.new("UIStroke",obj);s.Color=color;s.Transparency=trans or 0;s.Thickness=1 end
 local root=Instance.new("Frame")
-root.Name="Window";root.Size=UDim2.fromOffset(224,116);root.Position=UDim2.new(.5,-112,.5,-58)
+root.Name="Window";root.Size=UDim2.fromOffset(224,104);root.Position=UDim2.new(.5,-112,.5,-52)
 root.BackgroundColor3=black;root.BorderSizePixel=0;root.Active=true;root.Parent=gui
 round(root,12);stroke(root,ice,.55)
 local function label(text,x,y,w,h,size,color,bold)
@@ -31,7 +31,7 @@ label("FLY GUI",12,8,91,22,15,ice,true).TextXAlignment=Enum.TextXAlignment.Left
 label("V3",99,10,23,18,10,Color3.fromRGB(140,158,174),true)
 local minimize=btn("−",164,8,22,22,false)
 local close=btn("×",192,8,22,22,false)
-local line=Instance.new("Frame");line.Position=UDim2.fromOffset(12,37);line.Size=UDim2.fromOffset(200,1)
+local line=Instance.new("Frame");line.Position=UDim2.fromOffset(12,33);line.Size=UDim2.fromOffset(200,1)
 line.BorderSizePixel=0;line.BackgroundColor3=Color3.fromRGB(40,65,83);line.Parent=root
 label("SPEED",13,47,70,16,10,Color3.fromRGB(148,169,186),true).TextXAlignment=Enum.TextXAlignment.Left
 local minus=btn("−",13,68,39,33,false)
@@ -73,7 +73,7 @@ plus.MouseButton1Click:Connect(function() speed=math.min(100,speed+1);speedLabel
 fly.MouseButton1Click:Connect(function() if flying then stop() else start() end end)
 player.CharacterRemoving:Connect(stop)
 minimize.MouseButton1Click:Connect(function()
- minimized=not minimized;root.Size=UDim2.fromOffset(224,minimized and 39 or 116)
+ minimized=not minimized;root.Size=UDim2.fromOffset(224,minimized and 34 or 104)
  for _,v in ipairs({line,minus,plus,speedLabel,fly,footer}) do v.Visible=not minimized end
  for _,v in ipairs(root:GetChildren()) do if v:IsA("TextLabel") and v.Text=="SPEED" then v.Visible=not minimized end end
 end)
@@ -81,7 +81,7 @@ close.MouseButton1Click:Connect(function() stop();gui:Destroy() end)
 local dragging=false;local dragStart,startPos,dragInput
 root.InputBegan:Connect(function(input)
  if input.UserInputType==Enum.UserInputType.MouseButton1 or input.UserInputType==Enum.UserInputType.Touch then
-  if input.Position.Y<=root.AbsolutePosition.Y+37 then dragging=true;dragStart=input.Position;startPos=root.Position;dragInput=input end
+  if input.Position.Y<=root.AbsolutePosition.Y+33 then dragging=true;dragStart=input.Position;startPos=root.Position;dragInput=input end
  end
 end)
 UIS.InputEnded:Connect(function(input) if input==dragInput then dragging=false end end)
