@@ -18,12 +18,12 @@ root.BackgroundColor3=black;root.BorderSizePixel=0;root.Active=true;root.Parent=
 round(root,12);stroke(root,ice,.55)
 local function label(text,x,y,w,h,size,color,bold)
  local l=Instance.new("TextLabel");l.BackgroundTransparency=1;l.Position=UDim2.fromOffset(x,y);l.Size=UDim2.fromOffset(w,h)
- l.Font=bold and Enum.Font.GothamBold or Enum.Font.Gotham;l.Text=text;l.TextSize=size
+ l.Font=bold and Enum.Font.GothamBlack or Enum.Font.Gotham;l.Text=text;l.TextSize=size
  l.TextColor3=color or Color3.new(1,1,1);l.Parent=root;return l
 end
 local function btn(text,x,y,w,h,accent)
  local b=Instance.new("TextButton");b.Position=UDim2.fromOffset(x,y);b.Size=UDim2.fromOffset(w,h)
- b.Text=text;b.Font=Enum.Font.GothamBold;b.TextSize=14;b.TextColor3=accent and black or ice
+ b.Text=text;b.Font=Enum.Font.GothamBlack;b.TextSize=14;b.TextColor3=accent and black or ice
  b.BackgroundColor3=accent and ice or panel;b.BorderSizePixel=0;b.AutoButtonColor=true;b.Parent=root
  round(b,7);if not accent then stroke(b,ice,.7) end;return b
 end
